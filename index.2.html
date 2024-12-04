@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El pabli queria de one piece</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background-color: #000;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            padding: 20px;
+        }
+        .movie-card {
+            display: inline-block;
+            margin: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+        }
+        .movie-card img {
+            width: 100%;
+        }
+        .movie-card h3 {
+            margin: 10px 0;
+        }
+        .movie-card p {
+            padding: 0 10px 20px;
+        }
+        footer {
+            background-color: #000;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ME ABURRI ME VOY A VER JUAN PIZ</h1>
+    </header>
+    <div class="container" id="content">
+        <!-- Las tarjetas de películas se generarán dinámicamente -->
+    </div>
+    <footer>
+        <p>© Frase icoinica de Pablo Hernandez.</p>
+    </footer>
+
+    <script>
+        // Datos de películas
+        const movies = [
+            {
+                title: "One Piece",
+                img: "file:///C:/Users/emili/OneDrive/Desktop/luffy1.jpg",
+                description: "El pabli queria de juan piz."
+            },
+            {
+                title: "One piece",
+                img: "file:///C:/Users/emili/OneDrive/Desktop/maxresdefault%20(1).jpg",
+                description: "El pabli queria de juan piz.."
+            },
+            {
+                title: "One piece",
+                img: "file:///C:/Users/emili/OneDrive/Desktop/maxresdefault.jpg",
+                description: "El pabli queria de juan piz."
+            }
+        ];
+
+        // Renderizar tarjetas de películas
+        const contentDiv = document.getElementById("content");
+        movies.forEach(movie => {
+            const movieCard = `
+                <div class="movie-card">
+                    <img src="${movie.img}" alt="${movie.title}">
+                    <h3>${movie.title}</h3>
+                    <p>${movie.description}</p>
+                </div>
+            `;
+            contentDiv.innerHTML += movieCard;
+        });
+
+        // Ejemplo de botón para agregar más películas
+        const addButton = document.createElement("button");
+        addButton.textContent = "Agregar película";
+        addButton.onclick = () => {
+            const newMovie = {
+                title: "One piece",
+                img: "file:///C:/Users/emili/OneDrive/Desktop/images.jpg",
+                description: "LEl pabli queria de juan piz."
+            };
+            movies.push(newMovie);
+            contentDiv.innerHTML = ""; // Limpiar contenido existente
+            movies.forEach(movie => {
+                const movieCard = `
+                    <div class="movie-card">
+                        <img src="${movie.img}" alt="${movie.title}">
+                        <h3>${movie.title}</h3>
+                        <p>${movie.description}</p>
+                    </div>
+                `;
+                contentDiv.innerHTML += movieCard;
+            });
+        };
+        document.body.appendChild(addButton);
+    </script>
+</body>
+</html>
